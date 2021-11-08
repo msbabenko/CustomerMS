@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FIGRsqN22ecHEW+BegU+nrGTPqVWNpHw3pvsPH4+oqSjPXIdg9VIHXA6xXYVH4EugRSNQEDN1zSMrXxL7rl+Lw==",
+  "dgSpecHash": "IFVqs57pUdW+MBH7+2/2LUMUsEmJGkKaLqjFrOd9PfZ0uCTcsjCbjAmuRCBnvybfZj/mHTFbqz7tkHin5QFoZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hacka\\Desktop\\BankApp\\CustomerLogin\\CustomerLogin.csproj",
+  "projectFilePath": "C:\\Users\\hacka\\Desktop\\RulesMS\\CustomerLogin\\CustomerLogin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hacka\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\hacka\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.11\\microsoft.aspnetcore.authentication.jwtbearer.5.0.11.nupkg.sha512",

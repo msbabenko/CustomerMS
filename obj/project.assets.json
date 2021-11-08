@@ -5653,11 +5653,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hacka\\Desktop\\BankApp\\CustomerLogin\\CustomerLogin.csproj",
+      "projectUniqueName": "C:\\Users\\hacka\\Desktop\\RulesMS\\CustomerLogin\\CustomerLogin.csproj",
       "projectName": "CustomerLogin",
-      "projectPath": "C:\\Users\\hacka\\Desktop\\BankApp\\CustomerLogin\\CustomerLogin.csproj",
+      "projectPath": "C:\\Users\\hacka\\Desktop\\RulesMS\\CustomerLogin\\CustomerLogin.csproj",
       "packagesPath": "C:\\Users\\hacka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hacka\\Desktop\\BankApp\\CustomerLogin\\obj\\",
+      "outputPath": "C:\\Users\\hacka\\Desktop\\RulesMS\\CustomerLogin\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hacka\\AppData\\Roaming\\NuGet\\NuGet.Config",

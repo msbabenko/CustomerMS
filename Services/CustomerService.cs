@@ -1,6 +1,8 @@
 ﻿using CustomerLogin.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -31,7 +33,7 @@ namespace CustomerLogin.Services
                     var PasswordSalt = hmac.Key;
                     Customer login = new Customer()
                     {
-                          CustomerID=loginDto.CustomerID,
+                       //CustomerID=loginDto.CustomerID,
                         Email = loginDto.Email,
                         PasswordHash = PasswordHash,
                         PasswordSalt = PasswordSalt,
@@ -39,19 +41,40 @@ namespace CustomerLogin.Services
                         Phone = loginDto.Phone,
                         Name = loginDto.Name,
                         PANnumber=loginDto.PANnumber,
-                         Aadhaarnumber=loginDto.Aadhaarnumber,
-                         DateOfBirth=loginDto.DateOfBirth
-    };
+                        Aadhaarnumber=loginDto.Aadhaarnumber,
+                        DateOfBirth=loginDto.DateOfBirth
+                    };
+
                     _customerContext.customers.Add(login);
-                    _customerContext.SaveChanges();
+                   
                     loginDto.Password = "";
+
                     var creationstatus = new CustomerCreationStatus()
                     {
                         CustomerID = loginDto.CustomerID,
                         AccountCreationStatus = "Customer Created"
                     };
+
                     _customerContext.CustomerCreationStatuses.Add(creationstatus);
-                    _customerContext.SaveChanges();
+
+                    try
+                    {
+                        _customerContext.SaveChanges();
+                    }
+                    catch (DbUpdateConcurrencyException ce)
+                    {
+                        Debug.WriteLine(ce.Message);
+                    }
+                    catch (DbUpdateException ue)
+                    {
+                        Debug.WriteLine(ue.Message);
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine(e.Message);
+                    }
+
+                    loginDto.CustomerID = _customerContext.customers.Where(b => b.Email == login.Email).FirstOrDefault().CustomerID; 
                     return loginDto;
                 }
             }
@@ -149,5 +172,8 @@ namespace CustomerLogin.Services
             }
             return FoundCustomer;
         }
+
+
+     
     }
 }
