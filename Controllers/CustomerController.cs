@@ -68,13 +68,13 @@ namespace CustomerLogin.Controllers
             return BadRequest("ID Already Exists");
         }
 
-        [Route("Update")]
-        [HttpPut]
-        public ActionResult<CustomerDTO> Update([FromBody] CustomerDTO customer)
+
+        [HttpPut("{id}")]
+        public ActionResult<Customer> Update(int id, [FromBody] CustomerDTO customer)
         {
-            var CustomerDTO = _customerService.Update(customer);
-            if (CustomerDTO != null)
-                return Ok(CustomerDTO);
+            var Customer = _customerService.Update(id, customer);
+            if (Customer != null)
+                return Ok(Customer);
             return BadRequest("Please Enter Valid CustomerID");
 
         }
