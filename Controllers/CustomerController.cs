@@ -69,7 +69,7 @@ namespace CustomerLogin.Controllers
         }
 
         [Route("Update")]
-        [HttpPost]
+        [HttpPut]
         public ActionResult<CustomerDTO> Update([FromBody] CustomerDTO customer)
         {
             var CustomerDTO = _customerService.Update(customer);
@@ -79,7 +79,7 @@ namespace CustomerLogin.Controllers
 
         }
 
-        
+
 
         // PUT api/<CustomerController>/5
         [Route("Login")]
