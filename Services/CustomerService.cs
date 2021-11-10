@@ -125,7 +125,7 @@ namespace CustomerLogin.Services
        
         public Customer Update(int id, CustomerDTO customer)
         {
-            using var hmac = new HMACSHA512();
+            //using var hmac = new HMACSHA512();
             try
             {
                 var editCust = _customerContext.customers.FirstOrDefault(p => p.CustomerID == id);
@@ -133,8 +133,8 @@ namespace CustomerLogin.Services
                 {
 
                     editCust.Name = customer.Name;
-                    editCust.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(customer.Password));
-                    editCust.PasswordSalt = hmac.Key;
+                   // editCust.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(customer.Password));
+                   // editCust.PasswordSalt = hmac.Key;
                     editCust.Address = customer.Address;
                     editCust.Email = customer.Email;
                     editCust.PANnumber = customer.PANnumber;
@@ -147,7 +147,7 @@ namespace CustomerLogin.Services
                 }
                 else
                 {
-                    Console.WriteLine(" ID IS Not ");
+                    Console.WriteLine(" ID IS Not Found");
                 }
             }
             catch (Exception e)
